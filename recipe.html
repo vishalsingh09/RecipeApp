@@ -52,18 +52,18 @@ p {
 		// get textbox
 			let inputs = document.querySelectorAll("input");
 			let textbox1 = inputs[0];
-			let ingrediantsValue1 = textbox1.value;
-			displayRecipes.innerHTML += ingrediantsValue1;
+			let ingredientsValue1 = textbox1.value;
+			displayRecipes.innerHTML += ingredientsValue1;
 			
 			var outputIngredientsList = "";
 			for(int j = 0; j < )
 			
-			fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=dca2d95b17cc4416a712766261d61b19&ingredients=${ingrediantsValue1},${ingrediantsValue2},${ingrediantsValue3}&number=${ingrediantsValue4}`)
+			fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=dca2d95b17cc4416a712766261d61b19&ingredients=${ingredientsValue1},${ingredientsValue2},${ingredientsValue3}&number=${ingredientsValue4}`)
 			.then(response => response.json())
 			.then(json => {
 				console.log(json);
 				p1.innerText = "";
-				for(let i = 0; i < (parseInt(ingrediantsValue4)); i ++){
+				for(let i = 0; i < (parseInt(ingredientsValue4)); i ++){
 					p1.innerText += json[i].title + "\n";
 				}
 			});
@@ -74,7 +74,7 @@ p {
 	</script>
 
 	<h1>Recipe Generator!</h1>
-	Enter Ingrediant:
+	Enter Ingredient:
 	<input type="text" class="textClass" placeholder="Type here">
 
 
