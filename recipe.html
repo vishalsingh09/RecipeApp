@@ -1,0 +1,91 @@
+<html>
+
+<head>
+<title>Recipe App</title>
+<meta name="author" content="VIKASH" />
+
+</head>
+
+<body>
+	<style>
+body {
+	padding: 10 px 0;
+	text-align: center;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #574AD9;
+}
+
+h1 {
+	font-family: "IMPACT", "Lucida Grande", sans-serif;
+	color: #2FD2C5;
+}
+
+input {
+	color: blue;
+	text-align: center;
+}
+
+p {
+	color: red;
+}
+
+.textClass {
+	color: orange;
+}
+
+#firstButton {
+	border: 5px solid ghostwhite;
+	background-color: #18367F;
+	color: white;
+	padding: 5px 5px;
+	font-size: 15px;
+	cursor: pointer;
+}
+</style>
+
+
+	<script>
+	//var countNumberOfImages
+	//use count number of images, and then make that many image tags down there, and then in the function, just use [i] to iterate through image tags from the query.
+	
+		function clickedButton(){
+		// get textbox
+			let inputs = document.querySelectorAll("input");
+			let textbox1 = inputs[0];
+			let ingrediantsValue1 = textbox1.value;
+			displayRecipes.innerHTML += ingrediantsValue1;
+			
+			var outputIngredientsList = "";
+			for(int j = 0; j < )
+			
+			fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=dca2d95b17cc4416a712766261d61b19&ingredients=${ingrediantsValue1},${ingrediantsValue2},${ingrediantsValue3}&number=${ingrediantsValue4}`)
+			.then(response => response.json())
+			.then(json => {
+				console.log(json);
+				p1.innerText = "";
+				for(let i = 0; i < (parseInt(ingrediantsValue4)); i ++){
+					p1.innerText += json[i].title + "\n";
+				}
+			});
+			
+			
+			
+		}
+	</script>
+
+	<h1>Recipe Generator!</h1>
+	Enter Ingrediant:
+	<input type="text" class="textClass" placeholder="Type here">
+
+
+	<div id="displayRecipes"></div>
+
+	<img src="">
+
+	<input type="button" value="Generate Recipe" id="firstButton"
+		onClick="clickedButton()">
+
+
+</body>
+
+</html>
