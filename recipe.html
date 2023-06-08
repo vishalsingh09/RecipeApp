@@ -53,18 +53,28 @@ p {
 			let inputs = document.querySelectorAll("input");
 			let textbox1 = inputs[0];
 			let ingredientsValue1 = textbox1.value;
-			displayRecipes.innerHTML += ingredientsValue1;
+			displayIngredients.innerHTML += ingredientsValue1;
 			
 			var outputIngredientsList = "";
-			for(int j = 0; j < )
-			
-			fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=dca2d95b17cc4416a712766261d61b19&ingredients=${ingredientsValue1},${ingredientsValue2},${ingredientsValue3}&number=${ingredientsValue4}`)
+			var ingrediantsArray = [];
+			ingrediantsArray.push(textbox1.value);
+			var maxRecipes = 3;
+			var url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=dca2d95b17cc4416a712766261d61b19&ingredients="
+			for(var i =0;i<ingrediantsArray.length;i++){
+				url += ingrediantsArray[i]
+				if(i < ingrediantsArray.length-1)
+				{
+					url += ","
+				}	
+			}
+			url += "&number=" + maxRecipes;
+			fetch(url)
 			.then(response => response.json())
 			.then(json => {
 				console.log(json);
-				p1.innerText = "";
-				for(let i = 0; i < (parseInt(ingredientsValue4)); i ++){
-					p1.innerText += json[i].title + "\n";
+				var p1 = document.getElementById("displayRecipes");
+				for(let i = 0; i < maxRecipes; i ++){
+					p1.innerHTML += json[i].title + "\n";
 				}
 			});
 			
@@ -77,8 +87,9 @@ p {
 	Enter Ingredient:
 	<input type="text" class="textClass" placeholder="Type here">
 
-
+	<div id="displayIngredients"></div>
 	<div id="displayRecipes"></div>
+		<div id="gridView"></div>
 
 	<img src="">
 
