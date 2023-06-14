@@ -1,0 +1,51 @@
+class RecipeObject{
+    // private instance variables
+    #title;
+    #ingredients;
+    #image;
+    #steps;
+    #checkMark;
+    //constructor
+    constructor(title, ingredients, image, steps, checkMark) {
+        this.title = title;
+        this.ingredients = ingredients;
+        this.image = image;
+        this.steps = steps;
+        this.checkMark = checkMark;
+      }
+      
+      //getter methods
+      get title(){
+        return this.#title;
+      }
+      get ingredients(){
+        return this.#ingredients;
+      }
+      get image(){
+        return this.#image;
+      }
+      get steps(){
+        return this.#steps;
+      }
+      get checkMark(){
+        return this.#checkMark;
+      }
+      //setter methods
+      set title(x){
+        this.#title = x;
+      }
+
+      set ingredients(x){
+        this.#ingredients = x;
+      }
+      set image(x){
+        this.#image = x;
+      }
+      set steps(x){
+        this.#steps = x;
+      }
+      set checkMark(x){
+        this.#checkMark = x;
+      }
+      
+}
