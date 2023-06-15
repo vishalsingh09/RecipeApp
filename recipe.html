@@ -64,6 +64,13 @@ a{
 	text-align: center;
 }
 
+.clickable-div{
+	outline: 2px dashed blue;
+	height: 60px;
+	width: 60px;
+	position: relative;
+
+}
 
 
 
@@ -136,12 +143,19 @@ a{
 			let inputs = document.querySelectorAll("input");
 			let textbox1 = inputs[0];
 			let ingredientsValue1 = textbox1.value;
-			displayIngredients.innerHTML += ingredientsValue1 + "\n";
+			//displayIngredients.innerHTML += ingredientsValue1 + "\n";
 			
 			var outputIngredientsList = "";
 			
 			ingrediantsArray.push(textbox1.value);
-			var maxRecipes = 5;
+
+			var div = document.createElement('div');
+ 			div.className = 'clickable-div';
+			div.innerHTML = ingredientsValue1
+			displayIngredients.appendChild(div)
+			div.addEventListener('click', handleRemoveElement(ingredientsValue1));
+
+			var maxRecipes = 1;
 			var url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=dca2d95b17cc4416a712766261d61b19&ingredients=";
 			for(var l =0;l<ingrediantsArray.length;l++){
 				url += ingrediantsArray[l]
@@ -246,12 +260,11 @@ a{
 			output += "</table>";
 			//console.log(output);
 			displayRecipes.innerHTML = output;
-
-
-
-
 		}
-
+		function handleRemoveElement(ingredient)
+		{
+			//TODO
+		}
 
 
 
